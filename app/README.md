@@ -10,7 +10,7 @@
 
 ---
 
-# 📖 Project Overview
+# 📖 project Overview
 
 Healthcare insurance providers need to estimate medical insurance costs based on an individual's demographic, lifestyle, and medical information. Manual estimation can be inconsistent and time-consuming.
 
