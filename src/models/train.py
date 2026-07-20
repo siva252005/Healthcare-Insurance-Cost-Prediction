@@ -60,3 +60,27 @@ def train_random_forest(X_train, y_train):
     model.fit(X_train, y_train)
 
     return model
+from sklearn.ensemble import GradientBoostingRegressor
+
+def train_gradient_boosting(X_train, y_train):
+    """
+    Train a Gradient Boosting Regressor.
+
+    Parameters:
+        X_train: Training features
+        y_train: Training target
+
+    Returns:
+        Trained Gradient Boosting model
+    """
+
+    model = GradientBoostingRegressor(
+        n_estimators=100,
+        learning_rate=0.1,
+        max_depth=3,
+        random_state=42
+    )
+
+    model.fit(X_train, y_train)
+
+    return model
