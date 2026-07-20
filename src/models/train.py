@@ -84,3 +84,26 @@ def train_gradient_boosting(X_train, y_train):
     model.fit(X_train, y_train)
 
     return model
+from sklearn.ensemble import ExtraTreesRegressor
+
+def train_extra_trees(X_train, y_train):
+    """
+    Train an Extra Trees Regressor.
+
+    Parameters:
+        X_train: Training features
+        y_train: Training target
+
+    Returns:
+        Trained Extra Trees model
+    """
+
+    model = ExtraTreesRegressor(
+        n_estimators=100,
+        random_state=42,
+        n_jobs=-1
+    )
+
+    model.fit(X_train, y_train)
+
+    return model
