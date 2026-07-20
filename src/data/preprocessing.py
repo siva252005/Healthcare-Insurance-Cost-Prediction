@@ -4,6 +4,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
 
 
 def load_data(file_path):
@@ -123,3 +124,19 @@ def split_train_test(X, y, test_size=0.2, random_state=42):
         test_size=test_size,
         random_state=random_state
     )
+def train_linear_regression(X_train, y_train):
+    """
+    Train a Linear Regression model.
+
+    Parameters:
+        X_train: Training features
+        y_train: Training target
+
+    Returns:
+        Trained Linear Regression model
+    """
+
+    model = LinearRegression()
+    model.fit(X_train, y_train)
+
+    return model
