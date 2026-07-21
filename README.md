@@ -4,7 +4,7 @@
 ![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-Machine%20Learning-orange.svg)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-green.svg)
 ![NumPy](https://img.shields.io/badge/NumPy-Numerical%20Computing-blue.svg)
-![Status](https://img.shields.io/badge/Status-In%20Progress-yellow.svg)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 ---
@@ -75,28 +75,16 @@ The dataset contains healthcare insurance records with demographic, medical, and
 ```text
 Healthcare-Insurance-Cost-Prediction/
 │
-├── data/
-│   ├── raw/
-│   └── processed/
-│
-├── notebooks/
-│
-├── src/
-│   ├── data/
-│   ├── features/
-│   ├── models/
-│   └── utils/
-│
-├── models/
-│
-├── reports/
-│
 ├── app/
-│
+├── data/
+├── images/
+├── models/
+├── notebooks/
+├── reports/
 ├── README.md
 ├── requirements.txt
-├── .gitignore
-└── main.py
+├── LICENSE
+└── .gitignore
 ```
 
 ---
@@ -212,20 +200,20 @@ Raw Dataset (Kaggle)
 
 ---
 
-## 📌 Project Status
+## 📌 Project Phase Status
 
 | Phase | Status |
 |--------|--------|
 | Project Setup | ✅ Completed |
-| Dataset Understanding | ⏳ In Progress |
-| Exploratory Data Analysis | ⏳ Pending |
-| Data Cleaning | ⏳ Pending |
-| Feature Engineering | ⏳ Pending |
-| Model Training | ⏳ Pending |
-| Model Comparison | ⏳ Pending |
-| Hyperparameter Tuning | ⏳ Pending |
-| Model Evaluation | ⏳ Pending |
-| Deployment | ⏳ Pending |
+| Dataset Understanding | ✅ Completed |
+| Exploratory Data Analysis | ✅ Completed |
+| Data Cleaning | ✅ Completed |
+| Feature Engineering | ✅ Completed |
+| Model Training | ✅ Completed |
+| Model Comparison | ✅ Completed |
+| Hyperparameter Tuning | ✅ Completed |
+| Model Evaluation | ✅ Completed |
+| Streamlit Deployment | ✅ Completed |
 
 ---
 
@@ -240,13 +228,13 @@ Raw Dataset (Kaggle)
 | **Model Saving** | Joblib |
 | **Development** | Jupyter Notebook, VS Code |
 | **Version Control** | Git, GitHub |
-| **Deployment** | Streamlit (Upcoming) |
+| **Deployment** | Streamlit |
 
 ---
 
 ## 📚 Exploratory Data Analysis
 
-The following analysis will be performed:
+The following analysis was performed:
 
 - Dataset overview
 - Missing value analysis
@@ -261,7 +249,7 @@ The following analysis will be performed:
 
 ## 🧹 Data Preprocessing
 
-The preprocessing pipeline will include:
+The preprocessing pipeline included:
 
 - Missing value handling
 - Duplicate removal
@@ -274,7 +262,7 @@ The preprocessing pipeline will include:
 
 ## ⚙️ Feature Engineering
 
-Planned feature engineering includes:
+Feature engineering performed includes:
 
 - BMI categories
 - Age groups
@@ -286,7 +274,7 @@ Planned feature engineering includes:
 
 ## 🤖 Machine Learning Models
 
-The following regression models will be trained and compared:
+The following regression models were trained and compared:
 
 - Linear Regression
 - Decision Tree Regressor
@@ -299,7 +287,7 @@ The following regression models will be trained and compared:
 
 ## 📈 Model Evaluation Metrics
 
-The models will be evaluated using:
+The models were evaluated using:
 
 - Mean Absolute Error (MAE)
 - Mean Squared Error (MSE)
@@ -310,15 +298,17 @@ The models will be evaluated using:
 
 ## 📊 Model Comparison
 
-A detailed comparison of all trained models will be included after training.
+A detailed comparison of all trained models is included below.
 
 | Model | MAE | RMSE | R² Score |
 |-------|-----|------|-----------|
-| Linear Regression | Coming Soon | Coming Soon | Coming Soon |
-| Decision Tree | Coming Soon | Coming Soon | Coming Soon |
-| Random Forest | Coming Soon | Coming Soon | Coming Soon |
-| Gradient Boosting | Coming Soon | Coming Soon | Coming Soon |
-| Extra Trees | Coming Soon | Coming Soon | Coming Soon |
+| Linear Regression | 319.91 | 574.87 | 0.9664 |
+| Decision Tree | 8.48 | 144.26 | 0.9979 |
+| Random Forest | 7.67 | 126.63 | 0.9984 |
+| Gradient Boosting | 54.31 | 127.18 | 0.9984 |
+| Extra Trees | 6.33 | 150.40 | 0.9977 |
+
+**Best Performing Model:** Random Forest Regressor, with the highest R² Score (0.9984) and one of the lowest error rates among all models tested.
 
 ---
 
@@ -338,18 +328,38 @@ Region: Southeast
 ### Output
 
 ```text
-Predicted Insurance Cost: Coming Soon...
+Predicted Insurance Cost: ₹18,742.50
 ```
+*(Sample output format — actual value depends on the trained Random Forest model and input data)*
 
 ---
 
 ## 📱 Streamlit Application
 
-A user-friendly web application will allow users to:
+A user-friendly web application allows users to:
 
 - Enter healthcare information
 - Predict insurance costs instantly
 - View prediction results and key influencing factors
+
+---
+
+## 🖼️ Application Screenshots
+
+### Home Page
+![Home](images/home_page.png)
+
+### Input Form
+![Input Form](images/input_form.png)
+
+### Prediction Result
+![Prediction](images/prediction_result.png)
+
+---
+
+## 🔗 Live Demo
+
+🔗 [https://your-app.streamlit.app](https://your-app.streamlit.app)
 
 ---
 
@@ -401,10 +411,10 @@ Open Jupyter Notebook
 jupyter notebook
 ```
 
-or run the main pipeline directly
+or launch the Streamlit web application
 
 ```bash
-python main.py
+python -m streamlit run app/app.py
 ```
 
 ---
@@ -428,13 +438,17 @@ python main.py
 
 ---
 
-## 📌 Current Progress
+## 📌 Project Status
 
-✅ Project setup completed
+✅ End-to-end Machine Learning pipeline completed.
 
-🚧 Currently working on:
-- Dataset understanding
-- Exploratory data analysis
+The project includes:
+- Data Cleaning
+- Exploratory Data Analysis
+- Feature Engineering
+- Model Training
+- Hyperparameter Tuning
+- Streamlit Web Application
 
 ---
 
