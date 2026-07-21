@@ -14,88 +14,136 @@ from config import (
     yes_no_label
 )
 
+
+def section_card(icon_title, description):
+    """Render a modern section header card."""
+    st.markdown("---")
+    st.markdown(f"""
+    <div style="
+        background:#EFF6FF;
+        padding:15px;
+        border-radius:12px;
+        border-left:6px solid #2563eb;
+        margin-bottom:20px;
+    ">
+        <h3 style="margin:0;">{icon_title}</h3>
+        <p style="margin:5px 0 0 0;color:#555;">
+            {description}
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+
+
 # =====================================================
 # PERSONAL INFORMATION
 # =====================================================
 
 def personal_information():
 
-    st.markdown("---")
-    st.header("📋 Personal Information")
+    section_card(
+        "📋 Personal Information",
+        "Enter the customer's personal details."
+    )
 
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns(2, gap="large")
 
     with col1:
 
         age = st.number_input(
-            "Age",
+            "👤 Age",
             min_value=18,
             max_value=100,
-            value=30
+            value=30,
+            step=1,
+            format="%d",
+            help="Enter the customer's age."
         )
 
         sex = st.selectbox(
-            "Gender",
-            GENDER
+            "⚧ Gender",
+            GENDER,
+            help="Select the customer's gender."
         )
 
         bmi = st.number_input(
-            "BMI",
-            value=25.0
+            "⚖️ BMI",
+            min_value=10.0,
+            max_value=60.0,
+            value=25.0,
+            step=0.1,
+            format="%.1f",
+            help="Body Mass Index of the customer."
         )
 
         smoker = st.selectbox(
-            "Smoker",
-            SMOKER
+            "🚬 Smoker",
+            SMOKER,
+            help="Select the customer's smoking status."
         )
 
         household_size = st.number_input(
-            "Household Size",
+            "👨‍👩‍👧 Household Size",
             min_value=1,
-            value=4
+            value=4,
+            step=1,
+            format="%d",
+            help="Total number of people in the household."
         )
 
         dependents = st.number_input(
-            "Dependents",
+            "👶 Dependents",
             min_value=0,
-            value=2
+            value=2,
+            step=1,
+            format="%d",
+            help="Number of dependents the customer supports."
         )
 
     with col2:
 
         region = st.selectbox(
-            "Region",
-            REGIONS
+            "🌍 Region",
+            REGIONS,
+            help="Select the customer's region."
         )
 
         urban_rural = st.selectbox(
-            "Area",
-            AREA
+            "🏠 Area",
+            AREA,
+            help="Select whether the customer lives in an urban or rural area."
         )
 
         income = st.number_input(
-            "Annual Income",
-            value=500000
+            "💰 Annual Income",
+            min_value=0,
+            value=500000,
+            step=10000,
+            format="%d",
+            help="Customer's total annual income."
         )
 
         education = st.selectbox(
-            "Education",
-            EDUCATION
+            "🎓 Education",
+            EDUCATION,
+            help="Select the customer's highest level of education."
         )
 
         marital_status = st.selectbox(
-            "Marital Status",
-            MARITAL_STATUS
+            "💍 Marital Status",
+            MARITAL_STATUS,
+            help="Select the customer's marital status."
         )
 
         employment_status = st.selectbox(
-            "Employment Status",
-            EMPLOYMENT
+            "💼 Employment Status",
+            EMPLOYMENT,
+            help="Select the customer's current employment status."
         )
 
         alcohol_freq = st.selectbox(
-            "Alcohol Frequency",
-            ALCOHOL
+            "🍷 Alcohol Frequency",
+            ALCOHOL,
+            help="How often the customer consumes alcohol."
         )
 
     return {
@@ -121,100 +169,133 @@ def personal_information():
 
 def medical_information():
 
-    st.markdown("---")
-    st.header("❤️ Medical Information")
+    section_card(
+        "❤️ Medical Information",
+        "Provide the customer's medical history."
+    )
 
-    col3, col4 = st.columns(2)
+    col3, col4 = st.columns(2, gap="large")
 
     with col3:
 
         visits_last_year = st.number_input(
-            "Doctor Visits Last Year",
+            "👨‍⚕️ Doctor Visits Last Year",
             min_value=0,
             max_value=100,
-            value=5
+            value=5,
+            step=1,
+            format="%d",
+            help="Number of doctor visits in the last year."
         )
 
         hospitalizations_last_3yrs = st.number_input(
-            "Hospitalizations (Last 3 Years)",
+            "🏥 Hospitalizations (Last 3 Years)",
             min_value=0,
             max_value=20,
-            value=0
+            value=0,
+            step=1,
+            format="%d",
+            help="Number of hospitalizations in the last 3 years."
         )
 
         days_hospitalized_last_3yrs = st.number_input(
-            "Days Hospitalized",
+            "🛏️ Days Hospitalized",
             min_value=0,
             max_value=365,
-            value=0
+            value=0,
+            step=1,
+            format="%d",
+            help="Total days hospitalized in the last 3 years."
         )
 
         medication_count = st.number_input(
-            "Medication Count",
+            "💊 Medications",
             min_value=0,
             max_value=100,
-            value=2
+            value=2,
+            step=1,
+            format="%d",
+            help="Number of medications currently taken."
         )
 
         systolic_bp = st.number_input(
-            "Systolic Blood Pressure",
+            "❤️ Systolic Blood Pressure",
             min_value=70,
             max_value=250,
-            value=120
+            value=120,
+            step=1,
+            format="%d",
+            help="Systolic blood pressure reading (mmHg)."
         )
 
         diastolic_bp = st.number_input(
-            "Diastolic Blood Pressure",
+            "❤️ Diastolic Blood Pressure",
             min_value=40,
             max_value=150,
-            value=80
+            value=80,
+            step=1,
+            format="%d",
+            help="Diastolic blood pressure reading (mmHg)."
         )
 
     with col4:
 
         ldl = st.number_input(
-            "LDL Cholesterol",
+            "🩸 LDL Cholesterol",
             min_value=20,
             max_value=300,
-            value=100
+            value=100,
+            step=1,
+            format="%d",
+            help="LDL cholesterol level (mg/dL)."
         )
 
         hba1c = st.number_input(
-            "HbA1c",
+            "🧪 HbA1c",
             min_value=3.0,
             max_value=15.0,
-            value=5.5
+            value=5.5,
+            step=0.1,
+            format="%.1f",
+            help="HbA1c blood sugar level (%)."
         )
 
         chronic_count = st.number_input(
-            "Chronic Diseases Count",
+            "🩺 Chronic Diseases Count",
             min_value=0,
             max_value=10,
-            value=0
+            value=0,
+            step=1,
+            format="%d",
+            help="Number of chronic diseases diagnosed."
         )
 
         hypertension = st.selectbox(
-        "Hypertension",
-        YES_NO,
-        format_func=yes_no_label
-)
+            "❤️ Hypertension",
+            YES_NO,
+            format_func=yes_no_label,
+            help="Does the customer have hypertension?"
+        )
 
         diabetes = st.selectbox(
-            "Diabetes",
+            "🍬 Diabetes",
             YES_NO,
-            format_func=yes_no_label
+            format_func=yes_no_label,
+            help="Does the customer have diabetes?"
         )
 
         asthma = st.selectbox(
-            "Asthma",
+            "🌬️ Asthma",
             YES_NO,
-            format_func=yes_no_label
+            format_func=yes_no_label,
+            help="Does the customer have asthma?"
         )
 
         copd = st.selectbox(
-            "COPD",
+            "🫁 COPD",
             YES_NO,
-            format_func=yes_no_label
+            format_func=yes_no_label,
+            help="Does the customer have COPD?"
         )
 
     return {
@@ -240,92 +321,123 @@ def medical_information():
 
 def insurance_information():
 
-    st.markdown("---")
-    st.header("🛡 Insurance Information")
+    section_card(
+        "🛡 Insurance Information",
+        "Enter the customer's insurance plan and claims details."
+    )
 
-    col5, col6 = st.columns(2)
+    col5, col6 = st.columns(2, gap="large")
 
     with col5:
 
         plan_type = st.selectbox(
-            "Plan Type",
-            ["Basic", "Silver", "Gold", "Premium"]
+            "📄 Plan Type",
+            ["Basic", "Silver", "Gold", "Premium"],
+            help="Select the insurance plan type."
         )
 
         network_tier = st.selectbox(
-            "Network Tier",
-            ["Tier 1", "Tier 2", "Tier 3"]
+            "🌐 Network Tier",
+            ["Tier 1", "Tier 2", "Tier 3"],
+            help="Select the provider network tier."
         )
 
         deductible = st.number_input(
-            "Deductible",
+            "💰 Deductible",
             min_value=0,
-            value=1000
+            value=1000,
+            step=100,
+            format="%d",
+            help="Annual deductible amount."
         )
 
         copay = st.number_input(
-            "Copay",
+            "💳 Copay",
             min_value=0,
-            value=20
+            value=20,
+            step=5,
+            format="%d",
+            help="Fixed copay amount per visit."
         )
 
         policy_term_years = st.number_input(
-            "Policy Term (Years)",
+            "📅 Policy Term (Years)",
             min_value=1,
             max_value=30,
-            value=5
+            value=5,
+            step=1,
+            format="%d",
+            help="Length of the policy term in years."
         )
 
         policy_changes_last_2yrs = st.number_input(
-            "Policy Changes (Last 2 Years)",
+            "🔄 Policy Changes (Last 2 Years)",
             min_value=0,
             max_value=10,
-            value=0
+            value=0,
+            step=1,
+            format="%d",
+            help="Number of policy changes in the last 2 years."
         )
 
     with col6:
 
         provider_quality = st.slider(
-            "Provider Quality",
-            1,
-            5,
-            3
+            "⭐ Provider Quality",
+            min_value=1,
+            max_value=5,
+            value=3,
+            help="Rate the provider quality from 1 (poor) to 5 (excellent)."
         )
 
         risk_score = st.number_input(
-            "Risk Score",
+            "📊 Risk Score",
             min_value=0.0,
-            value=50.0
+            max_value=100.0,
+            value=50.0,
+            step=1.0,
+            help="Overall risk score of the customer."
         )
 
         annual_premium = st.number_input(
-            "Annual Premium",
+            "💵 Annual Premium",
             min_value=0.0,
-            value=12000.0
+            value=12000.0,
+            step=500.0,
+            help="Total annual premium amount."
         )
 
         monthly_premium = st.number_input(
-            "Monthly Premium",
+            "💳 Monthly Premium",
             min_value=0.0,
-            value=1000.0
+            value=1000.0,
+            step=100.0,
+            help="Monthly premium amount."
         )
 
         claims_count = st.number_input(
-            "Claims Count",
+            "📑 Claims Count",
             min_value=0,
-            value=0
+            value=0,
+            step=1,
+            format="%d",
+            help="Total number of claims filed."
         )
 
         avg_claim_amount = st.number_input(
-            "Average Claim Amount",
+            "📈 Average Claim Amount",
             min_value=0.0,
-            value=0.0
+            value=0.0,
+            step=100.0,
+            help="Average amount per claim."
         )
 
         total_claims_paid = st.number_input(
-            "Total Claims Paid",
+            "💸 Total Claims Paid",
             min_value=0.0,
-            value=0.0
+            value=0.0,
+            step=100.0,
+            help="Total amount paid out in claims."
         )
 
     return {
@@ -350,91 +462,111 @@ def insurance_information():
 
 def procedure_information():
 
-    st.markdown("---")
-    st.header("🏥 Procedures & Health Conditions")
+    section_card(
+        "🏥 Procedures & Health Conditions",
+        "Provide details on past procedures and existing health conditions."
+    )
 
-    col7, col8 = st.columns(2)
+    col7, col8 = st.columns(2, gap="large")
 
     with col7:
 
         cardiovascular_disease = st.selectbox(
-            "Cardiovascular Disease",
+            "❤️ Cardiovascular Disease",
             YES_NO,
-            format_func=yes_no_label
+            format_func=yes_no_label,
+            help="Does the customer have cardiovascular disease?"
         )
 
         cancer_history = st.selectbox(
-            "Cancer History",
+            "🎗️ Cancer History",
             YES_NO,
-            format_func=yes_no_label
+            format_func=yes_no_label,
+            help="Does the customer have a history of cancer?"
         )
 
         kidney_disease = st.selectbox(
-            "Kidney Disease",
+            "🩺 Kidney Disease",
             YES_NO,
-            format_func=yes_no_label
+            format_func=yes_no_label,
+            help="Does the customer have kidney disease?"
         )
 
         liver_disease = st.selectbox(
-            "Liver Disease",
+            "🧬 Liver Disease",
             YES_NO,
-            format_func=yes_no_label
+            format_func=yes_no_label,
+            help="Does the customer have liver disease?"
         )
 
         arthritis = st.selectbox(
-            "Arthritis",
+            "🦴 Arthritis",
             YES_NO,
-            format_func=yes_no_label
+            format_func=yes_no_label,
+            help="Does the customer have arthritis?"
         )
 
         mental_health = st.selectbox(
-            "Mental Health",
+            "🧠 Mental Health",
             YES_NO,
-            format_func=yes_no_label
+            format_func=yes_no_label,
+            help="Does the customer have a diagnosed mental health condition?"
         )
 
     with col8:
 
         proc_imaging_count = st.number_input(
-            "Imaging Procedures",
+            "🩻 Imaging Procedures",
             min_value=0,
-            step=1
+            step=1,
+            format="%d",
+            help="Number of imaging procedures (X-ray, MRI, etc.)."
         )
 
         proc_surgery_count = st.number_input(
-            "Surgery Procedures",
+            "🔪 Surgery Procedures",
             min_value=0,
-            step=1
+            step=1,
+            format="%d",
+            help="Number of surgical procedures undergone."
         )
 
         proc_physio_count = st.number_input(
-            "Physiotherapy Procedures",
+            "🏃 Physiotherapy Procedures",
             min_value=0,
-            step=1
+            step=1,
+            format="%d",
+            help="Number of physiotherapy sessions/procedures."
         )
 
         proc_consult_count = st.number_input(
-            "Consultation Procedures",
+            "👨‍⚕️ Consultation Procedures",
             min_value=0,
-            step=1
+            step=1,
+            format="%d",
+            help="Number of medical consultations."
         )
 
         proc_lab_count = st.number_input(
-            "Lab Procedures",
+            "🧪 Lab Procedures",
             min_value=0,
-            step=1
+            step=1,
+            format="%d",
+            help="Number of lab tests conducted."
         )
 
         is_high_risk = st.selectbox(
-            "High Risk Patient",
+            "⚠️ High Risk Patient",
             YES_NO,
-            format_func=yes_no_label
+            format_func=yes_no_label,
+            help="Is the customer classified as high risk?"
         )
 
         had_major_procedure = st.selectbox(
-            "Major Procedure",
+            "🏥 Major Procedure",
             YES_NO,
-            format_func=yes_no_label
+            format_func=yes_no_label,
+            help="Has the customer had a major medical procedure?"
         )
 
     return {
