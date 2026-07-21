@@ -1,4 +1,4 @@
-models/*.pkl
+
 models/*.joblib
 
 # Python
@@ -24,7 +24,6 @@ venv/
 *.log
 
 # Model Files
-models/*.pkl
 models/*.joblib
 
 # Dataset (optional)
