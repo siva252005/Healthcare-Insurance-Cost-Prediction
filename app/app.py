@@ -1,45 +1,123 @@
 import streamlit as st
 import pandas as pd
-from predict import predict_cost
 
+from predict import load_model
+from forms import (
+    personal_information,
+    medical_information,
+    insurance_information,
+    procedure_information
+)
+
+# ---------------------------------
+# Page Configuration
+# ---------------------------------
 st.set_page_config(
     page_title="Healthcare Insurance Cost Prediction",
     page_icon="🏥",
     layout="wide"
 )
 
+# ---------------------------------
+# Title
+# ---------------------------------
 st.title("🏥 Healthcare Insurance Cost Prediction")
+st.write(
+    "Estimate the annual medical insurance cost based on personal, medical, insurance, and health information."
+)
 
-st.header("Enter Patient Details")
+# ---------------------------------
+# Sidebar
+# ---------------------------------
+st.sidebar.title("ℹ️ About")
 
-col1, col2 = st.columns(2)
+st.sidebar.info(
+    """
+    **Healthcare Insurance Cost Prediction**
 
-with col1:
-    age = st.number_input("Age", 18, 100, 30)
-    gender = st.selectbox("Gender", ["Male", "Female"])
-    bmi = st.number_input("BMI", 10.0, 60.0, 25.0)
-    smoker = st.selectbox("Smoker", ["Yes", "No"])
+    **Machine Learning Model:** Random Forest Regressor
 
-with col2:
-    children = st.number_input("Children", 0, 10, 0)
-    region = st.selectbox(
-        "Region",
-        ["Northeast", "Northwest", "Southeast", "Southwest"]
-    )
-    income = st.number_input("Annual Income", 0, 5000000, 500000)
+    **Preprocessing:** ColumnTransformer
+    - StandardScaler
+    - OneHotEncoder
 
-if st.button("Predict Insurance Cost"):
+    **Framework:** Streamlit
+    """
+)
 
-    input_data = pd.DataFrame({
-        "age": [age],
-        "gender": [gender],
-        "bmi": [bmi],
-        "smoker": [smoker],
-        "children": [children],
-        "region": [region],
-        "income": [income]
-    })
+# ---------------------------------
+# Load Model
+# ---------------------------------
+try:
+    model, preprocessor = load_model()
+    st.success("✅ Model Loaded Successfully")
+except Exception as e:
+    st.error(f"Error Loading Model: {e}")
+    st.stop()
 
-    prediction = predict_cost(input_data)
+# ---------------------------------
+# User Input
+# ---------------------------------
+user_data = personal_information()
+medical_data = medical_information()
+insurance_data = insurance_information()
+procedure_data = procedure_information()
 
-    st.success(f"Predicted Annual Medical Cost: ₹ {prediction:,.2f}")
+# ---------------------------------
+# Combine Inputs
+# ---------------------------------
+input_data = {}
+
+input_data.update(user_data)
+input_data.update(medical_data)
+input_data.update(insurance_data)
+input_data.update(procedure_data)
+
+input_df = pd.DataFrame([input_data])
+
+# ---------------------------------
+# Preview Input (Optional)
+# ---------------------------------
+with st.expander("📄 View Entered Information"):
+    st.dataframe(input_df)
+
+# ---------------------------------
+# Prediction
+# ---------------------------------
+st.markdown("---")
+
+if st.button("💰 Predict Annual Medical Cost", use_container_width=True):
+
+    try:
+
+        # Preprocess
+        processed_data = preprocessor.transform(input_df)
+
+        # Predict
+        prediction = model.predict(processed_data)
+
+        predicted_cost = prediction[0]
+
+        st.markdown("## 🎯 Prediction Result")
+
+        st.metric(
+            label="Predicted Annual Medical Cost",
+            value=f"₹ {predicted_cost:,.2f}"
+        )
+
+        # Risk Level
+        if predicted_cost < 20000:
+            risk = "🟢 Low Cost"
+        elif predicted_cost < 50000:
+            risk = "🟡 Medium Cost"
+        else:
+            risk = "🔴 High Cost"
+
+        st.info(f"**Risk Level:** {risk}")
+
+        st.caption(
+            "⚠️ This prediction is generated using a machine learning model trained on historical insurance data. It is intended for educational purposes and should not be treated as an actual insurance quote."
+        )
+
+    except Exception as e:
+        st.error(f"Prediction Error: {e}")
