@@ -17,33 +17,48 @@ This project develops a Machine Learning regression model capable of predicting 
 
 ---
 
-## 🎯 Problem Statement
+## ✨ Key Features
 
-Healthcare insurance costs are influenced by several factors such as:
-
-- Age
-- Gender
-- BMI
-- Smoking Habit
-- Exercise Frequency
-- Chronic Diseases
-- Medical History
-- Lifestyle Factors
-
-The objective of this project is to build a regression model that accurately predicts insurance costs while identifying the most influential factors affecting medical expenses.
+- 🤖 Predict healthcare insurance costs using a trained Random Forest model
+- 📊 Complete end-to-end Machine Learning pipeline
+- 🧹 Data cleaning, preprocessing, and feature engineering
+- 📈 Exploratory Data Analysis (EDA) with visualizations
+- ⚖️ Comparison of multiple regression models
+- 🌐 Interactive Streamlit web application
+- 💾 Model saved using Joblib for deployment
 
 ---
 
-## 🎯 Project Objectives
+## 🖼️ Application Screenshots
 
-- Analyze healthcare insurance data
-- Understand factors affecting insurance charges
-- Perform data cleaning and preprocessing
-- Build multiple Machine Learning regression models
-- Compare model performance
-- Tune the best-performing model
-- Predict insurance costs for new customers
-- Deploy the final model using Streamlit
+### Home Page
+![Home](images/home_page.png)
+
+### Input Form
+![Input Form](images/input_form.png)
+
+### Insurance Information Section
+![Insurance Form](images/insurance_form.png)
+
+### Prediction Result
+![Prediction](images/prediction_result.png)
+
+---
+
+## 🛠 Technologies Used
+
+`Python` • `Pandas` • `NumPy` • `Scikit-learn` • `Matplotlib` • `Seaborn` • `Streamlit` • `Joblib` • `Git` • `GitHub`
+
+| Category | Tools |
+|-----------|------|
+| **Programming** | Python |
+| **Data Processing** | Pandas, NumPy |
+| **Visualization** | Matplotlib, Seaborn |
+| **Machine Learning** | Scikit-learn |
+| **Model Saving** | Joblib |
+| **Development** | Jupyter Notebook, VS Code |
+| **Version Control** | Git, GitHub |
+| **Deployment** | Streamlit |
 
 ---
 
@@ -92,213 +107,60 @@ Healthcare-Insurance-Cost-Prediction/
 ## 🚀 Machine Learning Workflow
 
 ```text
-Dataset
-   │
-   ▼
-Data Understanding
-   │
-   ▼
-Data Cleaning
-   │
-   ▼
-Exploratory Data Analysis
-   │
-   ▼
-Feature Engineering
-   │
-   ▼
-Data Preprocessing
-   │
-   ▼
-Train-Test Split
-   │
-   ▼
-Model Training
-   │
-   ▼
-Model Evaluation
-   │
-   ▼
-Hyperparameter Tuning
-   │
-   ▼
-Final Model
-   │
-   ▼
-Prediction
-   │
-   ▼
-Streamlit Deployment
-```
-
----
-
-## 🔄 Full Pipeline Flow
-
-```text
 Raw Dataset (Kaggle)
         |
-        | Load & Inspect
         v
-  Data Understanding
-        |
-        | Handle missing values, duplicates, dtypes
-        v
-   Data Cleaning
-        |
-        |--------------------------------------------------|
-        |                                                  |
-        |  Exploratory Data Analysis                       |
-        |  ----------------------------------------------  |
-        |  1. Distribution analysis                        |
-        |  2. Outlier detection                             |
-        |  3. Correlation analysis                          |
-        |  4. Feature relationship analysis                 |
-        |  ----------------------------------------------  |
-        |                                                  |
-        |  Feature Engineering                             |
-        |  ----------------------------------------------  |
-        |  1. BMI categories                                |
-        |  2. Age groups                                    |
-        |  3. Lifestyle risk score                           |
-        |  4. Medical risk indicators                        |
-        |  ----------------------------------------------  |
+Data Understanding
         |
         v
-  Data Preprocessing
-        |
-        | Encoding, scaling, train-test split
-        v
-  Model Training
-        |
-        |-----------------------------------------------|
-        |                                               |
-        |  Linear Regression   Decision Tree            |
-        |  Random Forest       Gradient Boosting         |
-        |  Extra Trees         XGBoost (optional)        |
-        |-----------------------------------------------|
+Data Cleaning
         |
         v
-  Model Evaluation
-        |
-        |  MAE · MSE · RMSE · R² Score
-        |
-        v
-  Hyperparameter Tuning
-        |
-        v
-     Final Model
+Exploratory Data Analysis
+   • Distribution analysis
+   • Outlier detection
+   • Correlation analysis
+   • Feature relationship analysis
         |
         v
-  ---------------- DEPLOYMENT ----------------
+Feature Engineering
+   • BMI categories
+   • Age groups
+   • Lifestyle risk score
+   • Medical risk indicators
         |
-        |  Streamlit Web Application
-        |    - User input form
-        |    - Real-time prediction
-        |    - Results visualization
+        v
+Data Preprocessing
+   • Encoding, scaling, train-test split
+        |
+        v
+Model Training
+   • Linear Regression      • Decision Tree
+   • Random Forest          • Gradient Boosting
+   • Extra Trees            • XGBoost (optional)
+        |
+        v
+Model Evaluation
+   • MAE · MSE · RMSE · R² Score
+        |
+        v
+Hyperparameter Tuning
+        |
+        v
+Final Model
+        |
+        v
+Streamlit Deployment
+   • User input form
+   • Real-time prediction
+   • Results visualization
 ```
 
 ---
 
-## 📌 Project Phase Status
+## 📈 Model Performance
 
-| Phase | Status |
-|--------|--------|
-| Project Setup | ✅ Completed |
-| Dataset Understanding | ✅ Completed |
-| Exploratory Data Analysis | ✅ Completed |
-| Data Cleaning | ✅ Completed |
-| Feature Engineering | ✅ Completed |
-| Model Training | ✅ Completed |
-| Model Comparison | ✅ Completed |
-| Hyperparameter Tuning | ✅ Completed |
-| Model Evaluation | ✅ Completed |
-| Streamlit Deployment | ✅ Completed |
-
----
-
-## 🛠 Technical Stack
-
-| Category | Tools |
-|-----------|------|
-| **Programming** | Python |
-| **Data Processing** | Pandas, NumPy |
-| **Visualization** | Matplotlib, Seaborn |
-| **Machine Learning** | Scikit-learn |
-| **Model Saving** | Joblib |
-| **Development** | Jupyter Notebook, VS Code |
-| **Version Control** | Git, GitHub |
-| **Deployment** | Streamlit |
-
----
-
-## 📚 Exploratory Data Analysis
-
-The following analysis was performed:
-
-- Dataset overview
-- Missing value analysis
-- Duplicate detection
-- Data type verification
-- Distribution analysis
-- Outlier detection
-- Correlation analysis
-- Feature relationship analysis
-
----
-
-## 🧹 Data Preprocessing
-
-The preprocessing pipeline included:
-
-- Missing value handling
-- Duplicate removal
-- Categorical encoding
-- Feature scaling
-- Train-test split
-- Pipeline creation
-
----
-
-## ⚙️ Feature Engineering
-
-Feature engineering performed includes:
-
-- BMI categories
-- Age groups
-- Lifestyle risk score
-- Medical risk indicators
-- Additional derived features
-
----
-
-## 🤖 Machine Learning Models
-
-The following regression models were trained and compared:
-
-- Linear Regression
-- Decision Tree Regressor
-- Random Forest Regressor
-- Gradient Boosting Regressor
-- Extra Trees Regressor
-- XGBoost (optional)
-
----
-
-## 📈 Model Evaluation Metrics
-
-The models were evaluated using:
-
-- Mean Absolute Error (MAE)
-- Mean Squared Error (MSE)
-- Root Mean Squared Error (RMSE)
-- R² Score
-
----
-
-## 📊 Model Comparison
-
-A detailed comparison of all trained models is included below.
+A detailed comparison of all trained models:
 
 | Model | MAE | RMSE | R² Score |
 |-------|-----|------|-----------|
@@ -308,14 +170,17 @@ A detailed comparison of all trained models is included below.
 | Gradient Boosting | 54.31 | 127.18 | 0.9984 |
 | Extra Trees | 6.33 | 150.40 | 0.9977 |
 
-**Best Performing Model:** Random Forest Regressor, with the highest R² Score (0.9984) and one of the lowest error rates among all models tested.
+### 🏆 Best Model Performance
 
----
+| Model | Random Forest Regressor |
+|--------|-------------------------|
+| R² Score | **0.9984** |
+| MAE | **7.67** |
+| RMSE | **126.63** |
 
-## 💡 Prediction Example
+### 💡 Prediction Example
 
-### Input
-
+**Input**
 ```text
 Age: 35
 Gender: Male
@@ -325,8 +190,7 @@ Exercise Frequency: Regular
 Region: Southeast
 ```
 
-### Output
-
+**Output**
 ```text
 Predicted Insurance Cost: ₹18,742.50
 ```
@@ -334,32 +198,9 @@ Predicted Insurance Cost: ₹18,742.50
 
 ---
 
-## 📱 Streamlit Application
-
-A user-friendly web application allows users to:
-
-- Enter healthcare information
-- Predict insurance costs instantly
-- View prediction results and key influencing factors
-
----
-
-## 🖼️ Application Screenshots
-
-### Home Page
-![Home](images/home_page.png)
-
-### Input Form
-![Input Form](images/input_form.png)
-
-### Prediction Result
-![Prediction](images/prediction_result.png)
-
----
-
 ## 🔗 Live Demo
 
-🔗 [https://your-app.streamlit.app](https://your-app.streamlit.app)
+🔗 [Add your deployed Streamlit link here once available]
 
 ---
 
@@ -403,7 +244,7 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Running the Project
+## ▶️ How to Run
 
 Open Jupyter Notebook
 
@@ -432,33 +273,28 @@ python -m streamlit run app/app.py
 
 ---
 
+## 🌟 Project Highlights
+
+- End-to-end Machine Learning pipeline: data cleaning, EDA, feature engineering, model comparison, tuning, and deployment
+- Random Forest achieved an R² Score of **0.9984**
+- Interactive Streamlit web application for real-time predictions
+- Professional, recruiter-friendly, ATS-friendly GitHub project structure
+- Ready for deployment and portfolio showcase
+
+---
+
 ## 💼 Interview Talking Point
 
 > Developed an end-to-end Machine Learning solution to predict healthcare insurance costs using patient demographic, lifestyle, and medical information. The project includes data preprocessing, exploratory data analysis, feature engineering, model comparison, hyperparameter tuning, and deployment planning following industry-standard machine learning practices.
 
 ---
 
-## 📌 Project Status
+## 📊 Repository Summary
 
-✅ End-to-end Machine Learning pipeline completed.
-
-The project includes:
-- Data Cleaning
-- Exploratory Data Analysis
-- Feature Engineering
-- Model Training
-- Hyperparameter Tuning
-- Streamlit Web Application
-
----
-
-## ⭐ Repository Goals
-
-- Beginner friendly
-- Recruiter friendly
-- ATS friendly
-- Industry-standard project structure
-- End-to-end Machine Learning pipeline
+- Language: Python
+- Machine Learning Task: Regression
+- Deployment: Streamlit
+- Best Model: Random Forest Regressor (R² Score: 0.9984)
 
 ---
 
@@ -477,4 +313,6 @@ Interested in:
 
 ---
 
-⭐ If you find this project useful, consider giving it a star!
+⭐ If you found this project helpful, please consider giving it a star.
+
+Feel free to open an issue or submit a pull request for improvements.
